@@ -1,4 +1,4 @@
-public class Event {
+public abstract class Event {
     private String eventID;
     private String eventName;
     private String eventLocation;
@@ -17,9 +17,9 @@ public class Event {
         this.totalEventDays = totalEventDays;
     }
 
-    public double calculateEventCost() {
-        return eventCost * totalEventDays;
-    }
+    //public double calculateEventCost() {
+    //    return eventCost * totalEventDays;
+    //}
    
 
     public void setTotalParticipants(int totalParticipants){
@@ -60,7 +60,7 @@ public class Event {
     public void setEventCost(double eventCost){
         this.eventCost = eventCost;
     }
-    public String getEventCost(){
+    public double getEventCost(){
         return eventCost;
     }
 
@@ -71,7 +71,7 @@ public class Event {
         return totalEventDays;
     }
 
-
+    public abstract double calculateEventCost();
 
 
     @Override

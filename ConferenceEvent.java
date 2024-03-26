@@ -1,4 +1,4 @@
-public class ConferenceEvent {
+public class ConferenceEvent extends Event implements CalculateEventCostInterface {
     private boolean breakfastRequired;
     private double breakfastCost;
     private boolean lunchRequired;
@@ -6,13 +6,19 @@ public class ConferenceEvent {
     private boolean dinnerRequired;
     private double dinnerCost;
 
-    public ConferenceEvent(boolean breakfastRequired, double breakfastCost, boolean lunchRequired, double lunchCost, boolean dinnerRequired, double dinnerCost) {
+    public void ConferenceEvent(String eventID,boolean breakfastRequired, double breakfastCost, boolean lunchRequired, double lunchCost, boolean dinnerRequired, double dinnerCost) {
+        super(eventID);
         this.breakfastRequired = breakfastRequired;
         this.breakfastCost = breakfastCost;
         this.lunchRequired = lunchRequired;
         this.lunchCost = lunchCost;
         this.dinnerRequired = dinnerRequired;
         this.dinnerCost = dinnerCost;
+    }
+
+    public void ConferenceEvent(String string, String string2, String string3, String string4, int i, int j, int k, int l,
+            int m) {
+        //TODO Auto-generated constructor stub
     }
 
     public double calculateEventCost() {
@@ -38,4 +44,10 @@ public class ConferenceEvent {
                 "Dinner Required: " + dinnerRequired + "\n" +
                 "Dinner Cost: $" + dinnerCost;
     }
+}
+
+@Override
+public double calculateEventCost() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'calculateEventCost'");
 }

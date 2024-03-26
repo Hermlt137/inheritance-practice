@@ -7,5 +7,7 @@ public class Main {
         MusicConcertEvent musicConcertEvent = new MusicConcertEvent("E002", "AlMusicConcert", "Paris", "Peng Tian", 20, 3, 50);
         musicConcertEvent.calculateEventCost();
         System.out.println(musicConcertEvent.toString());
+
+        
     }
 }
