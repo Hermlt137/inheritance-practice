@@ -1,6 +1,7 @@
-public interface CalculateEventCostInterface {
-
-    public void calculateEventCost();
-
-
-}
+class CalculateEventCostClass {  
+      
+    public double calculateEventCost() {  
+       double eventCost = 5000;  
+       return eventCost;  
+   }  
+} 

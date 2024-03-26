@@ -1,13 +1,30 @@
-public class ConferenceEvent extends Event implements CalculateEventCostInterface {
+import com.sun.java.accessibility.util.EventID;
+
+public class ConferenceEvent{
+    private String eventID;
+    private String eventName;
+    private String eventLocation;
+    private String eventPointOfContact;
+    private double eventCost;
+    private int totalParticipants;
+    private int totalEventDays;
     private boolean breakfastRequired;
     private double breakfastCost;
     private boolean lunchRequired;
     private double lunchCost;
     private boolean dinnerRequired;
     private double dinnerCost;
+    private CalculateEventCostClass calculateEventCostObject=new CalculateEventCostClass();
 
-    public void ConferenceEvent(String eventID,boolean breakfastRequired, double breakfastCost, boolean lunchRequired, double lunchCost, boolean dinnerRequired, double dinnerCost) {
-        super(eventID);
+
+    public ConferenceEvent(String eventID, String eventName, String eventLocation, String eventPointOfContact, double eventCost, int totalParticipants, int totalEventDays,double breakfastCost, double lunchCost) {
+        this.eventID = eventID;
+        this.eventName = eventName;
+        this.eventLocation = eventLocation;
+        this.eventPointOfContact = eventPointOfContact;
+        this.eventCost = eventCost;
+        this.totalParticipants = totalParticipants;
+        this.totalEventDays = totalEventDays;
         this.breakfastRequired = breakfastRequired;
         this.breakfastCost = breakfastCost;
         this.lunchRequired = lunchRequired;
@@ -16,38 +33,21 @@ public class ConferenceEvent extends Event implements CalculateEventCostInterfac
         this.dinnerCost = dinnerCost;
     }
 
-    public void ConferenceEvent(String string, String string2, String string3, String string4, int i, int j, int k, int l,
-            int m) {
+    public ConferenceEvent(String eventID2, String eventName2, String eventLocation2, String eventPointOfContact2,
+            int eventCost2, int totalParticipants2, int totalEventDays2, int breakfastCost2, int lunchCost2) {
         //TODO Auto-generated constructor stub
     }
 
-    public double calculateEventCost() {
-        double totalCost = 0.0;
-        if (breakfastRequired) {
-            totalCost += breakfastCost;
-        }
-        if (lunchRequired) {
-            totalCost += lunchCost;
-        }
-        if (dinnerRequired) {
-            totalCost += dinnerCost;
-        }
-        return totalCost;
+    public double calculateEventCost(){
+         return  eventCost = calculateEventCostObject.calculateEventCost() + (calculateEventCostObject.calculateEventCost() * 0.3);
     }
-
     public String toString() {
-        return "Conference Event Details:\n" +
-                "Breakfast Required: " + breakfastRequired + "\n" +
-                "Breakfast Cost: $" + breakfastCost + "\n" +
-                "Lunch Required: " + lunchRequired + "\n" +
-                "Lunch Cost: $" + lunchCost + "\n" +
-                "Dinner Required: " + dinnerRequired + "\n" +
-                "Dinner Cost: $" + dinnerCost;
+        return "Conference Event details:"+'\n'+
+                "Event ID: "+ eventID +'\n'+
+                "Event Name: "+eventName+'\n'+
+                "Event Location: "+eventLocation+'\n'+
+                "Total Participants: "+totalParticipants+'\n'+
+                "Total Event Cost:"+eventCost+'\n';
     }
 }
 
-@Override
-public double calculateEventCost() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'calculateEventCost'");
-}
